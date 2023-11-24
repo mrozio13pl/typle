@@ -14,6 +14,6 @@ export default async function updater(): Promise<void> {
             logger.info(`update available: ${pc.gray(update.current)} ${getUnicode('→', '->')} ${pc.green(update.latest)} (${update.type})`);
         }
     } catch {
-        // logger.warn('couldn\'t fetch new updates');
+        logger.warn('couldn\'t fetch new updates');
     }
 }
