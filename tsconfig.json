@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "strictPropertyInitialization": false,
+        "checkJs": true,
+    },
+    "exclude": ["**/*.spec.ts"],
+    "include": ["**/*.ts"]
+}

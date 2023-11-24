@@ -1,0 +1,29 @@
+{
+    "name": "typle",
+    "version": "0.0.0",
+    "description": "Automatically installs typescript declarations for your dependencies.",
+    "workspaces": [
+        "packages/*"
+    ],
+    "keywords": [],
+    "repository": "mrozio13pl/typle",
+    "author": "mrozio13pl",
+    "license": "MIT",
+    "scripts": {
+        "test": "npx lerna run test",
+        "lint": "eslint packages",
+        "build": "npx lerna run build",
+        "release": "npm t && npm run build && lerna publish"
+    },
+    "devDependencies": {
+        "@mrozio/eslint-config": "^1.0.2",
+        "@types/js-yaml": "^4.0.9",
+        "@types/node": "^20.9.4",
+        "eslint": "^8.54.0",
+        "js-yaml": "^4.1.0",
+        "lerna": "^7.4.2",
+        "lerna-changelog": "^2.2.0",
+        "tsup": "^8.0.1",
+        "typescript": "^5.2.2"
+    }
+}
