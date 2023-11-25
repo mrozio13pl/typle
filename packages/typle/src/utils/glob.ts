@@ -1,5 +1,6 @@
 import glob, { IOptions as GlobOptions } from 'glob';
 import { promisify } from 'node:util';
+import { existsSync } from 'node:fs';
 
 const globPromise = promisify(glob);
 
@@ -14,6 +15,6 @@ export async function globs(patterns: string | string[], options: GlobOptions): 
         patterns = [patterns];
     }
 
-    const results = await Promise.all(patterns.map(pattern => globPromise(pattern, options)));
+    const results = await Promise.all(patterns.map(pattern => existsSync(pattern) ? pattern : globPromise(pattern, options)));
     return results.flat();
 }
