@@ -31,8 +31,6 @@ export async function runCLI() {
         }
     }
 
-    logger.info('v' + version);
-
     prog
         .describe('Scan and install missing Typescript type definitions for dependencies in \'package.json\'.')
         .option('--no-silent, Run install silently.')
@@ -61,4 +59,6 @@ export async function runCLI() {
         });
 
     prog.parse();
+
+    logger.info('v' + version);
 }
