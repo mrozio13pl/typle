@@ -31,6 +31,16 @@ export function clearSpinner(): void {
     process.stdout.write(' '.repeat(process.stdout.columns || 50) + '\r');
 }
 
+/**
+ * Tries to execute an asynchronous function.
+ * @param {() => Promise<unknown>} fn Function.
+ */
+export async function niceTryPromise<T>(fn: () => Promise<T>): Promise<T | undefined> {
+    try {
+        return await fn();
+    } catch { /** empty */ }
+}
+
 /** Read local package.json. */
 export async function getPkgJson(): Promise<PackageJson> {
     return await readPkg(path.join(__dirname, '../package.json'));
@@ -53,8 +63,8 @@ function cleanSemver(version: string): string | null {
 
 /** Get current Typescript version. */
 export async function getTypescriptVersion(): Promise<string | null> {
-    const pkgJson = await readPkg();
-    const localTypescriptVersion = getDependencies(pkgJson).typescript;
+    const pkgJson = await niceTryPromise(readPkg) || {};
+    const localTypescriptVersion = getDependencies(pkgJson as PackageJson).typescript;
 
     if (localTypescriptVersion) {
         return cleanSemver(localTypescriptVersion);
