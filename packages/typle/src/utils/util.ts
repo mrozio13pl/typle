@@ -75,12 +75,12 @@ export async function getTypescriptVersion(): Promise<string | null> {
         const proc = spawn('tsc -v');
         proc.stdout?.on('data', version => {
             resolve(cleanSemver(version.toString()));
+            proc.kill();
         });
 
         // typescript not installed ig
-        proc.once('exit', () => {
-            reject();
-        });
+        proc.once('error', reject);
+        proc.once('exit', reject);
     });
 }
 

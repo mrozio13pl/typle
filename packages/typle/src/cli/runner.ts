@@ -7,7 +7,7 @@ import updater from '../updater';
 import logger from '../utils/logger';
 import { session } from '../utils/session';
 import { globs } from '../utils/glob';
-import { getTypescriptVersion, joincwd, defaultOptions, allowedPackageManagers } from '../utils/util';
+import { getTypescriptVersion, joincwd, defaultOptions, allowedPackageManagers, niceTryPromise } from '../utils/util';
 import type { Options } from '../types';
 
 const { exit } = process;
@@ -19,7 +19,7 @@ export async function run(options_: Partial<Options> = {}): Promise<void> {
     const options: Options & Record<string, any> = { ...defaultOptions, ...options_ };
 
     const start = Date.now(); // start time
-    const typescriptVersion = await getTypescriptVersion();
+    const typescriptVersion = await niceTryPromise(getTypescriptVersion);
     const tsTag = typescriptVersion ? 'ts' + semver.major(typescriptVersion) + '.' + semver.minor(typescriptVersion) : void 0;
 
     if (typescriptVersion) {
