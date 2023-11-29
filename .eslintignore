@@ -4,4 +4,5 @@ packages/*/dist/**
 **/coverage/**
 **/*.spec.ts
 **/*.js
+**/*.mjs
 **/*.md

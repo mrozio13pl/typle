@@ -11,7 +11,7 @@
     "license": "MIT",
     "scripts": {
         "test": "npx lerna run test",
-        "lint": "eslint packages",
+        "lint": "eslint packages && node scripts/publint.mjs",
         "build": "npx lerna run build",
         "release": "npm t && npm run build && lerna publish"
     },
@@ -23,6 +23,7 @@
         "js-yaml": "^4.1.0",
         "lerna": "^7.4.2",
         "lerna-changelog": "^2.2.0",
+        "publint": "^0.2.5",
         "tsup": "^8.0.1",
         "typescript": "^5.2.2"
     }
