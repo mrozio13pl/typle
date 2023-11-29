@@ -1,6 +1,6 @@
 {
   "name": "typle-core",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Scan package.json for missing @types libraries.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
