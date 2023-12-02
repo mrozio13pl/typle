@@ -14,17 +14,18 @@ import type { Argv } from 'ofi';
 /**
  * Install packages with `@types` definitions.
  * @param {string[]} libs libraries to install
- * @param {Argv} args parsed arguments
  * @param {Pick<Options, 'pkgManager'>} [options] options
  */
-export async function install(libs: string[], args: Argv, options: Pick<Options, 'pkgManager'> = {}): Promise<void> {
+export async function install(libs: string[], options: Pick<Options, 'pkgManager'> = {}): Promise<void> {
     if (!fs.existsSync(joincwd('package.json'))) {
         logger.error('could\'t find \'package.json\' in this directory');
         process.exit(1);
     }
 
     // additional arguments
+    const args = options as Argv;
     const additionalArgs: string[] = [];
+
     Object.keys(args).forEach(arg => {
         const opt = args[arg];
         if (Array.isArray(opt)) return;
