@@ -1,11 +1,38 @@
 import { cli } from 'clittle';
 import { lilconfigSync } from 'lilconfig';
+import jiti from 'jiti';
 import { existsSync } from 'node:fs';
 import { getVersion, joincwd } from './utils/util';
 import { run } from './cli/runner';
 import { install } from './cli/installer';
 import logger from './utils/logger';
 import type { Options } from './types';
+
+function loadTypescript(filepath: string) {
+    return jiti(__filename, { interopDefault: true })(filepath);
+}
+
+const configPaths: string[] = [
+    'package.json',
+    '.typlerc.js',
+    '.typlerc.cjs',
+    '.typlerc.json',
+    'typle.config.js',
+    'typle.config.cjs',
+    '.config/typlerc',
+    '.config/typlerc.json',
+    '.config/typlerc.js',
+    '.config/typlerc.cjs',
+    '.typlerc.ts',
+    '.typlerc.mts',
+    '.typlerc.cts',
+    'typle.config.ts',
+    'typle.config.mts',
+    'typle.config.cts',
+    '.config/typlerc.ts',
+    '.config/typlerc.mts',
+    '.config/typlerc.cts',
+];
 
 export async function runCLI() {
     const version = await getVersion();
@@ -14,6 +41,12 @@ export async function runCLI() {
     const configExplorer = lilconfigSync('typle', {
         stopDir: process.cwd(),
         packageProp: 'typleConfig',
+        searchPlaces: configPaths,
+        loaders: {
+            '.ts': loadTypescript,
+            '.mts': loadTypescript,
+            '.cts': loadTypescript,
+        },
         cache: true
     });
 

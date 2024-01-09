@@ -159,6 +159,15 @@ export default defineConfig({
 * `.config/typlerc.json`
 * `.config/typlerc.js`
 * `.config/typlerc.cjs`
+* `.typlerc.ts`
+* `.typlerc.mts`
+* `.typlerc.cts`
+* `typle.config.ts`
+* `typle.config.mts`
+* `typle.config.cts`
+* `.config/typlerc.ts`
+* `.config/typlerc.mts`
+* `.config/typlerc.cts`
 
 If you wish to store config in some other file path use `--config` option.
 
