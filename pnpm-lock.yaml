@@ -8,21 +8,18 @@ importers:
 
   .:
     devDependencies:
+      '@mroz/js-yaml':
+        specifier: ^4.1.1
+        version: 4.1.1
       '@mrozio/eslint-config':
         specifier: ^1.0.3
         version: 1.0.3(eslint@8.56.0)(typescript@5.3.3)
-      '@types/js-yaml':
-        specifier: ^4.0.9
-        version: 4.0.9
       '@types/node':
         specifier: ^20.10.7
         version: 20.10.7
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
-      js-yaml:
-        specifier: ^4.1.0
-        version: 4.1.0
       lerna:
         specifier: ^8.0.2
         version: 8.0.2
@@ -584,6 +581,12 @@ packages:
       - encoding
       - supports-color
       - typescript
+    dev: true
+
+  /@mroz/js-yaml@4.1.1:
+    resolution: {integrity: sha512-gnTHvDfcKFjWdvss3oySnmtodr/5wiA/VmcQaEigrzzrFv2O9sY8ZwnhRDVnM4Bu0/5xwf5Shl/Wp6B0MW+tbg==}
+    dependencies:
+      '@types/js-yaml': 4.0.9
     dev: true
 
   /@mrozio/eslint-config@1.0.3(eslint@8.56.0)(typescript@5.3.3):
