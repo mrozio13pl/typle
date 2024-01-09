@@ -16,15 +16,15 @@
         "release": "npm t && npm run build && lerna publish"
     },
     "devDependencies": {
-        "@mrozio/eslint-config": "^1.0.2",
+        "@mrozio/eslint-config": "^1.0.3",
         "@types/js-yaml": "^4.0.9",
-        "@types/node": "^20.9.4",
-        "eslint": "^8.54.0",
+        "@types/node": "^20.10.7",
+        "eslint": "^8.56.0",
         "js-yaml": "^4.1.0",
-        "lerna": "^7.4.2",
+        "lerna": "^8.0.2",
         "lerna-changelog": "^2.2.0",
-        "publint": "^0.2.5",
+        "publint": "^0.2.7",
         "tsup": "^8.0.1",
-        "typescript": "^5.2.2"
+        "typescript": "^5.3.3"
     }
 }
