@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "noEmit": true,
+    },
+    "include": [
+        "packages/**/*.ts",
+        "test",
+        "typle.config.ts",
+        "tsup.config.ts",
+        ".eslintrc.cjs"
+    ]
+}

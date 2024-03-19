@@ -11,14 +11,19 @@
     "license": "MIT",
     "scripts": {
         "test": "npx lerna run test",
-        "lint": "eslint packages && node scripts/publint.mjs",
+        "lint": "eslint . && node scripts/publint.mjs",
+        "lint:fix": "eslint . --fix",
         "build": "npx lerna run build",
         "release": "npm t && npm run build && lerna publish"
     },
     "devDependencies": {
+        "@babel/eslint-parser": "^7.24.1",
+        "@babel/preset-env": "^7.24.1",
         "@mroz/js-yaml": "^4.1.1",
         "@mrozio/eslint-config": "^1.0.4",
+        "@types/eslint": "^8.56.6",
         "@types/node": "^20",
+        "core-js": "^3.36.1",
         "eslint": "^8.57.0",
         "lerna": "^8.1.2",
         "lerna-changelog": "^2.2.0",

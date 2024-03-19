@@ -1,6 +1,0 @@
-{
-    "extends": ["@mrozio/eslint-config/typescript"],
-    "parserOptions": {
-        "project": "./tsconfig.json"
-    }
-}
