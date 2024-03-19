@@ -28,8 +28,8 @@
     "@npm/types": "^1.0.2"
   },
   "devDependencies": {
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3"
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2"
   },
   "publishConfig": {
     "access": "public"

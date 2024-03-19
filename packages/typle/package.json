@@ -53,12 +53,12 @@
     "detect-indent": "^6.1.0",
     "glob": "^8.1.0",
     "jiti": "^1.21.0",
-    "lilconfig": "^3.0.0",
+    "lilconfig": "^3.1.1",
     "nanospinner": "^1.1.0",
     "ofi": "^1.3.4",
     "picocolors": "^1.0.0",
     "semver": "^6.3.1",
-    "tiny-update-notifier": "^1.0.1",
+    "tiny-update-notifier": "^2.0.0",
     "typle-core": "workspace:*",
     "typle-util": "workspace:*"
   },
@@ -68,9 +68,9 @@
     "@types/glob": "^8.1.0",
     "@types/semver": "^6.2.7",
     "is-unicode-supported": "^2.0.0",
-    "tsup": "^8.0.1",
-    "typescript": "^5.3.3",
-    "vitest": "^1.1.3"
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.2",
+    "vitest": "^1.4.0"
   },
   "publishConfig": {
     "access": "public"

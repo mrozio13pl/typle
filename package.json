@@ -17,13 +17,13 @@
     },
     "devDependencies": {
         "@mroz/js-yaml": "^4.1.1",
-        "@mrozio/eslint-config": "^1.0.3",
-        "@types/node": "^20.10.7",
-        "eslint": "^8.56.0",
-        "lerna": "^8.0.2",
+        "@mrozio/eslint-config": "^1.0.4",
+        "@types/node": "^20",
+        "eslint": "^8.57.0",
+        "lerna": "^8.1.2",
         "lerna-changelog": "^2.2.0",
         "publint": "^0.2.7",
-        "tsup": "^8.0.1",
-        "typescript": "^5.3.3"
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.2"
     }
 }
