@@ -47,6 +47,9 @@ importers:
       typescript:
         specifier: ^5.4.2
         version: 5.4.2
+      typle:
+        specifier: workspace:^
+        version: link:packages/typle
 
   packages/typle:
     dependencies:

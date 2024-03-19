@@ -29,6 +29,7 @@
         "lerna-changelog": "^2.2.0",
         "publint": "^0.2.7",
         "tsup": "^8.0.2",
-        "typescript": "^5.4.2"
+        "typescript": "^5.4.2",
+        "typle": "workspace:^"
     }
 }
