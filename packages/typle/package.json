@@ -1,6 +1,6 @@
 {
   "name": "typle",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "📦 Scan and install missing Typescript type definitions for your dependencies.",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
