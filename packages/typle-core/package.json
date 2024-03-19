@@ -27,7 +27,6 @@
   "dependencies": {
     "@npm/types": "^1.0.2",
     "find-up-keys": "^1.0.1",
-    "phin": "^3.7.0",
     "resolve": "^1.22.8",
     "typle-util": "workspace:*"
   },

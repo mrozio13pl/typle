@@ -1,4 +1,5 @@
-import phin from 'phin';
+import * as https from 'node:https';
+import { URL } from 'node:url';
 import { REGISTRY_URL } from 'typle-util';
 import type { Packument } from '@npm/types';
 
@@ -9,15 +10,31 @@ import type { Packument } from '@npm/types';
  * @returns {Promise<Packument | undefined>}
  * @see https://npm.im/@npm/types#types
  */
-export async function fetchPackage(lib: string): Promise<Packument | undefined> {
-    const res = (await phin<Packument & { error?: string }>({
-        url: new URL(lib, REGISTRY_URL),
-        parse: 'json'
-    })).body;
+export function fetchPackage(lib: string): Promise<Packument | undefined> {
+    return new Promise((resolve, reject) => {
+        const url = new URL(lib, REGISTRY_URL);
 
-    if (res.error) {
-        return void 0;
-    }
+        const req = https.get(url, res => {
+            let data = '';
 
-    return res;
+            res.on('data', chunk => {
+                data += chunk;
+            });
+
+            res.on('end', () => {
+                const packument: Packument & { error?: string } = JSON.parse(data);
+                if (packument.error) {
+                    resolve(void 0);
+                } else {
+                    resolve(packument);
+                }
+            });
+        });
+
+        req.on('error', error => {
+            reject(error);
+        });
+
+        req.end();
+    });
 }
