@@ -15,10 +15,7 @@
       "default": "./dist/index.js"
     }
   },
-  "repository": {
-    url: "mrozio13pl/typle",
-    directory: "packages/typle-util"
-  },
+  "repository": "mrozio13pl/typle",
   "author": "mrozio13pl",
   "license": "MIT",
   "scripts": {
