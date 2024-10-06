@@ -6,7 +6,7 @@ import { convertToTypes } from 'typle-util';
 import { fetchPackage, hasOwnTypes } from 'typle-core';
 import updater from '../updater';
 import logger from '../utils/logger';
-import { allowedPackageManagers, getTypescriptVersion, joincwd } from '../utils/util';
+import { allowedPackageManagers, getTypescriptVersion, joincwd, niceTryPromise } from '../utils/util';
 import type { Options } from '../types';
 import type { PackageJSON } from '@npm/types';
 import type { Argv } from 'ofi';
@@ -33,7 +33,7 @@ export async function install(libs: string[], options: Pick<Options, 'pkgManager
         if (!/^(true|false)$/i.test(opt)) additionalArgs.push(opt);
     });
 
-    const typescriptVersion = await getTypescriptVersion();
+    const typescriptVersion = await niceTryPromise(getTypescriptVersion);
     const tsTag = typescriptVersion && 'ts' + semver.major(typescriptVersion) + '.' + semver.minor(typescriptVersion);
 
     if (typescriptVersion) {
