@@ -2,11 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import semver from 'semver';
 import pc from 'picocolors';
+import { glob } from 'tinyglobby';
 import { scan } from '../scanner';
 import updater from '../updater';
 import logger from '../utils/logger';
 import { session } from '../utils/session';
-import { globs } from '../utils/glob';
 import { getTypescriptVersion, joincwd, defaultOptions, allowedPackageManagers, niceTryPromise } from '../utils/util';
 import type { Options } from '../types';
 
@@ -48,7 +48,7 @@ export async function run(options_: Partial<Options> = {}): Promise<void> {
 
         await scan(pkgPath, tsTag, options);
     } else {
-        const files = await globs(options.patterns, { dot: true, absolute: true, nodir: false });
+        const files = await glob(options.patterns, { dot: true, absolute: true });
 
         if (!files.length) {
             logger.info('no matching patterns found');
