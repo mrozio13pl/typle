@@ -17,19 +17,19 @@
         "release": "npm t && npm run build && lerna publish"
     },
     "devDependencies": {
-        "@babel/eslint-parser": "^7.24.1",
-        "@babel/preset-env": "^7.24.1",
+        "@babel/eslint-parser": "^7.25.7",
+        "@babel/preset-env": "^7.25.7",
         "@mroz/js-yaml": "^4.1.1",
         "@mrozio/eslint-config": "^1.0.4",
-        "@types/eslint": "^8.56.6",
+        "@types/eslint": "^8.56.12",
         "@types/node": "^20",
-        "core-js": "^3.36.1",
-        "eslint": "^8.57.0",
-        "lerna": "^8.1.2",
+        "core-js": "^3.38.1",
+        "eslint": "^8.57.1",
+        "lerna": "^8.1.8",
         "lerna-changelog": "^2.2.0",
-        "publint": "^0.2.7",
-        "tsup": "^8.0.2",
-        "typescript": "^5.4.2",
+        "publint": "^0.2.11",
+        "tsup": "^8.3.0",
+        "typescript": "^5.6.2",
         "typle": "workspace:^"
     }
 }

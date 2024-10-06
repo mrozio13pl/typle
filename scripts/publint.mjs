@@ -9,11 +9,11 @@ const workspaceDir = path.join(__dirname, '../packages');
 
 async function readDirs(fp) {
     const entries = await fs.promises.readdir(fp, { withFileTypes: true });
-  
+
     const dirs = entries
         .filter(entry => entry.isDirectory())
         .map(entry => path.join(entry.path, entry.name));
-  
+
     return dirs;
 }
 
@@ -24,7 +24,7 @@ for (let i = 0; i < packages.length; i++) {
     const pkgDir = packages[i];
     const pkgJson = JSON.parse(await fs.promises.readFile(path.join(pkgDir, 'package.json')));
     const { messages } = await publint({ pkgDir });
-    
+
     messages.forEach(message => {
         console.log(formatMessage(message, pkgJson));
     });

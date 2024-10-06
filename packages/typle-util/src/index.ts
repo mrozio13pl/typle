@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import type { PackageJson } from '@npm/types';
+import type { PackageJSON } from '@npm/types';
 
 /** `@types/` library prefix */
 export const TYPES_PREFIX = '@types/';
@@ -34,7 +34,7 @@ export function convertToTypes(lib: string): string {
  * @param {string} pkgPath path to package.json
  * @returns {Promise<PackageJson>}
  */
-export async function readPkg(pkgPath = path.join(process.cwd(), 'package.json')): Promise<PackageJson> {
+export async function readPkg(pkgPath = path.join(process.cwd(), 'package.json')): Promise<PackageJSON> {
     return JSON.parse(await fs.promises.readFile(pkgPath, 'utf8'));
 }
 
@@ -43,6 +43,6 @@ export async function readPkg(pkgPath = path.join(process.cwd(), 'package.json')
  * @param {PackageJson} pkg package.json
  * @returns {Record<string, string>}
  */
-export function getDependencies(pkg: PackageJson): Record<string, string> {
-    return { ...pkg.dependencies, ...pkg.devDependencies, ...pkg.peerDependencies, ...(pkg as PackageJson & { optionalDependencies: Record<string, string> }).optionalDependencies };
+export function getDependencies(pkg: PackageJSON): Record<string, string> {
+    return { ...pkg.dependencies, ...pkg.devDependencies, ...pkg.peerDependencies, ...(pkg as PackageJSON & { optionalDependencies: Record<string, string> }).optionalDependencies };
 }

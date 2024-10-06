@@ -6,7 +6,7 @@ import { createSpinner } from 'nanospinner';
 import { getDependencies, readPkg } from 'typle-util';
 import type { Options } from '../types';
 import type { Dependency } from 'typle-core';
-import type { PackageJson, Packument } from '@npm/types';
+import type { PackageJSON, Packument } from '@npm/types';
 import type { PackageManager } from '@antfu/install-pkg';
 
 export const joincwd = path.join.bind(void 0, process.cwd());
@@ -42,7 +42,7 @@ export async function niceTryPromise<T>(fn: () => Promise<T>): Promise<T | undef
 }
 
 /** Read local package.json. */
-export async function getPkgJson(): Promise<PackageJson> {
+export async function getPkgJson(): Promise<PackageJSON> {
     return await readPkg(path.join(__dirname, '../package.json'));
 }
 
@@ -64,7 +64,7 @@ function cleanSemver(version: string): string | null {
 /** Get current Typescript version. */
 export async function getTypescriptVersion(): Promise<string | null> {
     const pkgJson = await niceTryPromise(readPkg) || {};
-    const localTypescriptVersion = getDependencies(pkgJson as PackageJson).typescript;
+    const localTypescriptVersion = getDependencies(pkgJson as PackageJSON).typescript;
 
     if (localTypescriptVersion) {
         return cleanSemver(localTypescriptVersion);

@@ -10,7 +10,7 @@ import { session } from './utils/session';
 import { generateList } from './utils/generate-list';
 import { clearSpinner, defaultOptions, joincwd, matchVersion, spinner } from './utils/util';
 import type { Options } from './types';
-import type { PackageJson } from '@npm/types';
+import type { PackageJSON } from '@npm/types';
 
 const { exit } = process;
 const pkgCwd = joincwd('package.json');
@@ -25,7 +25,7 @@ export async function scan(pkgPath = pkgCwd, tsTag = 'latest', options: Options 
 
     const pkgJson = await readPkg(pkgPath);
     const types = [];
-    const libraries: PackageJson[] = [];
+    const libraries: PackageJSON[] = [];
 
     try {
         types.push(...await filterTypes(pkgJson, cwd));
@@ -42,7 +42,7 @@ export async function scan(pkgPath = pkgCwd, tsTag = 'latest', options: Options 
             if (options.ignorePackages.includes(lib.name)) return;
             if (options.ignoreDeps.some(deps => {
                 if (deps === 'deps') deps = 'dependencies';
-                const pkgEl = (pkgJson[(deps as keyof PackageJson)] || pkgJson[(deps + 'Dependencies' as keyof PackageJson)]) as Record<string, unknown>;
+                const pkgEl = (pkgJson[(deps as keyof PackageJSON)] || pkgJson[(deps + 'Dependencies' as keyof PackageJSON)]) as Record<string, unknown>;
 
                 return pkgEl?.[lib.name];
             })) return;
@@ -129,7 +129,7 @@ export async function scan(pkgPath = pkgCwd, tsTag = 'latest', options: Options 
         // make sure to keep the indent
         const indent = detectIndent(await fs.promises.readFile(pkgPath, 'utf8')).amount || 2;
         await fs.promises.writeFile(pkgPath, JSON.stringify(pkgJson, undefined, indent), 'utf8');
-        logger.info('succesfully updated package.json');
+        logger.info('successfully updated package.json');
         logger.info(`run ${pc.cyan(`${pkgManager} ${installCmd}`)} to install newly added packages`);
     }
 

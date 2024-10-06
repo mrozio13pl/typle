@@ -8,7 +8,7 @@ import updater from '../updater';
 import logger from '../utils/logger';
 import { allowedPackageManagers, getTypescriptVersion, joincwd } from '../utils/util';
 import type { Options } from '../types';
-import type { PackageJson } from '@npm/types';
+import type { PackageJSON } from '@npm/types';
 import type { Argv } from 'ofi';
 
 /**
@@ -57,7 +57,7 @@ export async function install(libs: string[], options: Pick<Options, 'pkgManager
 
     await installPackage(libs, { additionalArgs });
 
-    const libraries: PackageJson[] = [];
+    const libraries: PackageJSON[] = [];
 
     await Promise.all(
         libs.map(async lib => {

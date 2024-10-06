@@ -1,6 +1,6 @@
 import { convertToTypes, getDependencies, TYPES_PREFIX } from 'typle-util';
 import { hasOwnTypes } from './has-own-types';
-import type { PackageJson } from '@npm/types';
+import type { PackageJSON } from '@npm/types';
 
 export declare interface Dependency {
     name: string;
@@ -9,10 +9,10 @@ export declare interface Dependency {
 
 /**
  * Filter libraries that don't have types built-in or types installed.
- * @param {PackageJson} pkg package.json
+ * @param {PackageJSON} pkg package.json
  * @param {string} cwd cwd
  */
-export async function filterTypes(pkg: PackageJson, cwd = process.cwd()): Promise<Dependency[]> {
+export async function filterTypes(pkg: PackageJSON, cwd = process.cwd()): Promise<Dependency[]> {
     const dependencies = Object.keys(getDependencies(pkg));
     const typesDependencies = dependencies.filter(dependency => dependency.startsWith(TYPES_PREFIX));
     const filteredDependencies = await Promise.all(
