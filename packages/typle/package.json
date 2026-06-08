@@ -69,7 +69,7 @@
     "ofi": "^1.3.4",
     "tsup": "^8.3.0",
     "typescript": "^5.6.2",
-    "vitest": "^1.6.0"
+    "vitest": "^3.2.6"
   },
   "publishConfig": {
     "access": "public"
